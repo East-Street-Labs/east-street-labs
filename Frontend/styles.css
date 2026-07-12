@@ -1,46 +1,48 @@
 /* ============================================================
    East Street Labs — design tokens
    Same system as the Inputto design language ("full mint",
-   white text pills, chunky 3D buttons) translated to a
-   sakura pink/purple palette. Only the colors differ.
+   white text pills, chunky 3D buttons). Every color below is
+   sampled directly from the shiawase artwork (assets/logo.png):
+   khaki sky, mountain blue, blossom salmon, sun red, snow white.
+   Only the colors differ from the system.
    ============================================================ */
 
 :root {
     /* Canvas & text */
-    --background: #FCE7F3;            /* pink-100 — app canvas, not white */
-    --foreground: #241A20;            /* near-black, faint pink tint */
+    --background: #EAE198;            /* khaki sky — app canvas, not white */
+    --foreground: #26221A;            /* warm near-black, like the ink outlines */
 
     /* Surfaces */
-    --card: #F9A8D4;                  /* pink-300 — darker pink than canvas */
+    --card: #6DD1E1;                  /* mountain blue — the surface step up from canvas */
     --popover: #FFFFFF;               /* dropdown panels stay white */
 
     /* Primary (chunky 3D buttons) */
-    --primary: #EC4899;               /* pink-500 */
+    --primary: #E33B28;               /* sun red */
     --primary-foreground: #FFFFFF;
-    --primary-shadow: #BE185D;        /* pink-700 — depth edge */
+    --primary-shadow: #A82517;        /* darkened sun red — depth edge */
 
-    /* Secondary (white button, pink depth edge) */
+    /* Secondary (white button, tinted depth edge) */
     --secondary: #FFFFFF;
-    --secondary-foreground: #241A20;
-    --secondary-shadow: #FBCFE8;      /* pink-200 */
+    --secondary-foreground: #26221A;
+    --secondary-shadow: #D4CB7E;      /* olive brushstroke */
 
-    /* Accent — the "lila" side of sakura */
-    --accent: #E9D5FF;                /* purple-200 */
-    --accent-foreground: #581C87;     /* purple-900 */
+    /* Accent — the blossom side of the artwork */
+    --accent: #F4A48C;                /* blossom salmon */
+    --accent-foreground: #7C351F;     /* deep rust — dark end of the blossom family */
 
     /* Low emphasis */
-    --muted: #FDF2F8;                 /* pink-50 */
-    --muted-foreground: #6D5560;
+    --muted: #F4EFC6;                 /* lightened khaki */
+    --muted-foreground: #6B6650;
 
     /* Destructive */
-    --destructive: #EF4444;           /* red-500 */
+    --destructive: #C22315;           /* deeper red, distinct from the sun primary */
     --destructive-foreground: #FFFFFF;
-    --destructive-shadow: #B91C1C;    /* red-700 */
+    --destructive-shadow: #8C1408;
 
     /* Lines & focus */
-    --border: #FBCFE8;                /* pink-200 */
-    --input: #F9A8D4;                 /* pink-300 — slightly more visible */
-    --ring: #F472B6;                  /* pink-400 */
+    --border: #D4CB7E;                /* olive brushstroke — subtle on khaki */
+    --input: #6DD1E1;                 /* mountain blue — slightly more visible */
+    --ring: #4FB5C9;                  /* deeper mountain blue */
 
     /* Shape & type */
     --radius: 1.25rem;
