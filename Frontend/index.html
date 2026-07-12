@@ -3,9 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>East Street Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <nav class="main-menu" aria-label="Main navigation">
+        <a class="btn" href="#/home" data-link="home">Home</a>
+        <a class="btn" href="#/about" data-link="about">About</a>
+        <a class="btn" href="#/solutions" data-link="solutions">Solutions</a>
+        <a class="btn" href="#/contact" data-link="contact">Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- ===== Home ===== -->
+        <section data-route="home">
+            <div class="hero">
+                <h1>East Street Labs</h1>
+                <p class="lead">We design and build playful, dependable software — small tools and big
+                    ideas, crafted with care on East Street.</p>
+                <div class="btn-row">
+                    <a class="btn" href="#/solutions">Explore our solutions</a>
+                    <a class="btn btn-secondary" href="#/contact">Get in touch</a>
+                </div>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9998;</div>
+                    <h3>Design first</h3>
+                    <p>Every project starts as a sketch. We validate the look and feel on a real
+                        screen before writing a line of production code.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9881;</div>
+                    <h3>Built to last</h3>
+                    <p>Boring infrastructure, exciting products. We pick proven tools so your
+                        software keeps working long after launch.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9829;</div>
+                    <h3>Human sized</h3>
+                    <p>A small lab, not an agency machine. You talk directly to the people who
+                        design and build your product.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About ===== -->
+        <section data-route="about" hidden>
+            <h1>About us</h1>
+            <p class="lead">East Street Labs is an independent software studio. We help small teams
+                turn rough ideas into finished, working products.</p>
+
+            <div class="card">
+                <h3>What we believe</h3>
+                <p>Good software feels friendly. It should be obvious, tactile and a little bit
+                    fun — without ever getting in the way of the work.</p>
+                <p>We keep our projects few and our involvement deep. That means we say no
+                    sometimes, so that every yes gets our full attention.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#10022;</div>
+                    <h3>Craft</h3>
+                    <p>Details matter. We sweat the corners, the copy and the empty states.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9737;</div>
+                    <h3>Clarity</h3>
+                    <p>Plain language, honest estimates and demos you can click on every week.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#10148;</div>
+                    <h3>Momentum</h3>
+                    <p>Small releases, shipped often. Progress you can see, not just hear about.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Solutions ===== -->
+        <section data-route="solutions" hidden>
+            <h1>Solutions</h1>
+            <p class="lead">From first prototype to production, we cover the whole journey.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9634;</div>
+                    <h3>Web applications</h3>
+                    <p>Full-stack web apps with modern front ends and dependable back ends —
+                        built for real users from day one.</p>
+                    <a class="btn btn-secondary" href="#/contact">Ask about web apps</a>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#10038;</div>
+                    <h3>AI integrations</h3>
+                    <p>Practical AI features that solve actual problems — search, summarising,
+                        assistants — without the buzzword bingo.</p>
+                    <a class="btn btn-secondary" href="#/contact">Ask about AI</a>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9998;</div>
+                    <h3>Design systems</h3>
+                    <p>Tokens, components and documentation that keep your product looking
+                        consistent as your team grows.</p>
+                    <a class="btn btn-secondary" href="#/contact">Ask about design</a>
+                </div>
+                <div class="card">
+                    <div class="icon-chip" aria-hidden="true">&#9729;</div>
+                    <h3>Cloud &amp; infrastructure</h3>
+                    <p>Deployment pipelines, monitoring and hosting that stay out of your way
+                        and out of the headlines.</p>
+                    <a class="btn btn-secondary" href="#/contact">Ask about cloud</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact ===== -->
+        <section data-route="contact" hidden>
+            <h1>Contact</h1>
+            <p class="lead">Tell us a little about your project and we will get back to you within
+                two working days.</p>
+
+            <div class="card form-card">
+                <form id="contact-form" novalidate>
+                    <div class="field">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-full">Send message</button>
+                    <span id="contact-success" class="chip" hidden>Thanks! Your message has been sent.</span>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 East Street Labs</p>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
