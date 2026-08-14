@@ -141,8 +141,14 @@ For now, East Street Labs is just me, Max, building and shipping products indepe
                         <label for="contact-message">Message</label>
                         <textarea id="contact-message" name="message" rows="5" required></textarea>
                     </div>
+                    <!-- Spam honeypot: bots tick it, humans never see it -->
+                    <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1"
+                        autocomplete="off" aria-hidden="true">
+
                     <button type="submit" class="btn-full">Send message</button>
-                    <span id="contact-success" class="chip" hidden>Thanks! Your message has been sent.</span>
+                    <span id="contact-success" class="chip" role="status" hidden>Thanks! Your message has been sent.</span>
+                    <span id="contact-error" class="chip chip-error" role="alert" hidden>Something went wrong.
+                        Please try again, or email hello@eaststreetlabs.com directly.</span>
                 </form>
             </div>
         </section>
