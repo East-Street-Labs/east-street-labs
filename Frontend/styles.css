@@ -85,7 +85,27 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0.75rem;
     border-radius: var(--radius);
     width: fit-content;
-    margin: 0 0 1rem;
+
+    margin-inline: auto;
+    /* No lone word left on the last line */
+    text-wrap: pretty;
+}
+
+p {
+    text-align: center;
+    width: fit-content;
+    /* fit-content can only hug text that fits on one line — past that it
+       expands to the full container. Capping the measure keeps the pill
+       narrow and the line breaks even. */
+    max-width: 46ch;
+}
+
+/* Short centered blocks read best with lines of even length rather than
+   a full first line and a stub last one. */
+h1, h2, h3, h4, h5, h6,
+.lead,
+.card p {
+    text-wrap: balance;
 }
 
 h1 { font-size: 2.25rem; line-height: 1.2; font-weight: 800; }
@@ -117,6 +137,7 @@ button,
     cursor: pointer;
     user-select: none;
     transition: transform 60ms ease, border-bottom-width 60ms ease;
+    margin-inline: auto;
 }
 
 button:active,
@@ -256,7 +277,7 @@ textarea:focus-visible {
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
-    padding: 1.5rem;
+    padding: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
@@ -273,6 +294,11 @@ textarea:focus-visible {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+}
+
+/* Paragraphs stretch to fill the card, so text blocks line up across a row */
+.card-grid .card p {
+    flex-grow: 1;
 }
 
 .card-grid .card .btn {
@@ -330,6 +356,7 @@ textarea:focus-visible {
 
 .form-card {
     max-width: 28rem;
+    margin-inline: auto;
 }
 
 .field {
