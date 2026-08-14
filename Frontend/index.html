@@ -8,9 +8,7 @@
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="assets/favicon-180.png" type="image/png" sizes="180x180">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/rubik-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -141,6 +139,17 @@ For now, East Street Labs is just me, Max, building and shipping products indepe
                         <label for="contact-message">Message</label>
                         <textarea id="contact-message" name="message" rows="5" required></textarea>
                     </div>
+                    <div class="field field-consent">
+                        <!-- The link sits outside the label: clicking a link inside a
+                             label would toggle the checkbox as well as navigate. -->
+                        <label class="consent" for="contact-consent">
+                            <input id="contact-consent" name="consent" type="checkbox" value="yes" required>
+                            <span>I agree that my name, email and message are stored so that
+                                East Street Labs can reply to me.</span>
+                        </label>
+                        <a class="consent-link" href="#/privacy">Read the privacy notice</a>
+                    </div>
+
                     <!-- Spam honeypot: bots tick it, humans never see it -->
                     <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1"
                         autocomplete="off" aria-hidden="true">
@@ -153,9 +162,48 @@ For now, East Street Labs is just me, Max, building and shipping products indepe
             </div>
         </section>
 
+        <!-- ===== Privacy ===== -->
+        <section data-route="privacy" hidden>
+            <h1>Privacy</h1>
+            <p class="lead">What happens to what you type into the contact form</p>
+
+            <div class="card legal">
+                <h3>Who is responsible</h3>
+                <p>East Street Labs is a one-person studio run by Max. If you have any question
+                    about your data, or want it deleted, email
+                    <a href="mailto:hello@eaststreetlabs.com">hello@eaststreetlabs.com</a>.</p>
+
+                <h3>What is collected</h3>
+                <p>Only what you type into the contact form: your name, your email address and
+                    your message. Nothing else is collected, and there is no account to create.</p>
+
+                <h3>Why, and on what basis</h3>
+                <p>Your details are used for one purpose — to read your message and reply to it.
+                    The legal basis is your consent, given by ticking the box on the contact form.
+                    You can withdraw it at any time by emailing the address above.</p>
+
+                <h3>Who else sees it</h3>
+                <p>The form is delivered by Web3Forms, which passes the message on to our inbox
+                    and acts as our processor. From there the message is kept in our email
+                    account. We store it rather than deleting it on a schedule, so if you want it
+                    gone, just say so and we will erase it.</p>
+
+                <h3>No tracking</h3>
+                <p>This site sets no cookies, runs no analytics and embeds nothing from anyone
+                    else. Fonts are served from this site rather than from Google, so no request
+                    leaves your browser until you press send.</p>
+
+                <h3>Your rights</h3>
+                <p>You can ask for a copy of what is stored about you, ask for it to be corrected,
+                    or ask for it to be erased. If you think your data is mishandled you can
+                    complain to the Swedish authority IMY.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
+        <a class="footer-link" href="#/privacy">Privacy</a>
         <p>&copy; 2026 East Street Labs</p>
     </footer>
 

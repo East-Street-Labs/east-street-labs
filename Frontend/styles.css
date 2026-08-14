@@ -1,4 +1,33 @@
 /* ============================================================
+   Rubik — self-hosted. Loading it from Google's CDN sends every
+   visitor's IP to Google, which needs consent under GDPR; serving
+   it ourselves removes the third party entirely.
+   Variable weight 300–900. Italic is not shipped (nothing uses it).
+   ============================================================ */
+
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 300 900;
+    font-display: swap;
+    src: url("assets/fonts/rubik-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+        U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 300 900;
+    font-display: swap;
+    src: url("assets/fonts/rubik-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+        U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+        U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ============================================================
    East Street Labs — design tokens
    Same system as the Inputto design language ("full mint",
    white text pills, chunky 3D buttons). Every color below is
@@ -391,6 +420,57 @@ textarea {
     resize: vertical;
 }
 
+/* Checkboxes must escape the full-width rule above */
+input[type="checkbox"] {
+    width: auto;
+    flex: none;
+    margin: 0.2rem 0 0;
+    padding: 0;
+    accent-color: var(--primary);
+}
+
+.field-consent {
+    margin-bottom: 1.25rem;
+}
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+.consent-link,
+.footer-link {
+    display: inline-block;
+    font-size: 0.8125rem;
+    color: var(--foreground);
+}
+
+.consent-link {
+    margin: 0.5rem 0 0 1.75rem;
+}
+
+/* Legal copy is long-form: ranged left and narrower than the pills elsewhere,
+   because centred text is hard to read past a couple of lines. */
+.legal p {
+    text-align: left;
+    text-wrap: pretty;
+    max-width: 60ch;
+    margin-inline: 0;
+}
+
+.legal h3 {
+    margin-inline: 0;
+    margin-top: 1.5rem;
+}
+
+.legal h3:first-child {
+    margin-top: 0;
+}
+
 /* Success feedback — small inline accent chip */
 .chip {
     /* block + fit-content, not inline-block: auto margins only centre
@@ -442,7 +522,9 @@ button[disabled]:active {
 
 footer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0 1.5rem 2rem;
 }
 
