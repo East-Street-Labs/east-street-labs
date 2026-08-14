@@ -101,6 +101,10 @@
 
 body {
     margin: 0;
+    /* Column flex + a growing <main> keeps the footer at the bottom of the
+       viewport on short pages, and below the content on long ones. */
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     background: var(--background);
     color: var(--foreground);
@@ -109,6 +113,8 @@ body {
 }
 
 main {
+    flex: 1 0 auto;
+    width: 100%;
     max-width: 64rem;
     margin: 0 auto;
     padding: 1.5rem 1.5rem 4rem;
