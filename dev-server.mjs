@@ -9,7 +9,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
 
-const ROOT = resolve(import.meta.dirname, "Frontend");
+const ROOT = resolve(import.meta.dirname, "docs");
 const PORT = Number(process.env.PORT ?? 4173);
 
 const CONTENT_TYPES = {
@@ -53,5 +53,5 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Serving Frontend/ on http://localhost:${PORT}`);
+    console.log(`Serving docs/ on http://localhost:${PORT}`);
 });
