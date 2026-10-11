@@ -29,49 +29,50 @@
 
 /* ============================================================
    East Street Labs — design tokens
-   Same system as the Inputto design language ("full mint",
-   white text pills, chunky 3D buttons). Every color below is
-   sampled directly from the shiawase artwork (assets/logo.png):
-   khaki sky, mountain blue, blossom salmon, sun red, snow white.
-   Only the colors differ from the system.
+   Same system as the Inputto design language (white text pills,
+   chunky 3D buttons), with Inputto's emerald scale swapped step
+   for step for a scale built around the mountain blue sampled
+   from the artwork (assets/logo.png). That blue is the 300 step;
+   the other steps are lighter and darker shades of the same hue.
+   Only the hue differs from Inputto.
    ============================================================ */
 
 :root {
     /* Canvas & text */
-    --background: #EAE198;            /* khaki sky — app canvas, not white */
-    --foreground: #26221A;            /* warm near-black, like the ink outlines */
+    --background: #D9F3F7;            /* 100 — app canvas, not white */
+    --foreground: #182326;            /* near-black with a hint of the blue */
 
     /* Surfaces */
-    --card: #6DD1E1;                  /* mountain blue — the surface step up from canvas */
+    --card: #6DD1E1;                  /* 300 — mountain blue, the surface step up from canvas */
     --popover: #FFFFFF;               /* dropdown panels stay white */
 
     /* Primary (chunky 3D buttons) */
-    --primary: #E33B28;               /* sun red */
+    --primary: #1A9BB5;               /* 500 */
     --primary-foreground: #FFFFFF;
-    --primary-shadow: #A82517;        /* darkened sun red — depth edge */
+    --primary-shadow: #0F6F85;        /* 700 — depth edge */
 
     /* Secondary (white button, tinted depth edge) */
     --secondary: #FFFFFF;
-    --secondary-foreground: #26221A;
-    --secondary-shadow: #D4CB7E;      /* olive brushstroke */
+    --secondary-foreground: #182326;
+    --secondary-shadow: #B0E6EE;      /* 200 */
 
-    /* Accent — the blossom side of the artwork */
-    --accent: #F4A48C;                /* blossom salmon */
-    --accent-foreground: #7C351F;     /* deep rust — dark end of the blossom family */
+    /* Accent */
+    --accent: #B0E6EE;                /* 200 */
+    --accent-foreground: #134B5A;     /* 900 */
 
     /* Low emphasis */
-    --muted: #F4EFC6;                 /* lightened khaki */
-    --muted-foreground: #6B6650;
+    --muted: #EEFAFC;                 /* 50 */
+    --muted-foreground: #55656A;
 
     /* Destructive */
-    --destructive: #C22315;           /* deeper red, distinct from the sun primary */
+    --destructive: #EF4444;           /* red-500 */
     --destructive-foreground: #FFFFFF;
-    --destructive-shadow: #8C1408;
+    --destructive-shadow: #B91C1C;    /* red-700 */
 
     /* Lines & focus */
-    --border: #D4CB7E;                /* olive brushstroke — subtle on khaki */
-    --input: #6DD1E1;                 /* mountain blue — slightly more visible */
-    --ring: #4FB5C9;                  /* deeper mountain blue */
+    --border: #B0E6EE;                /* 200 — subtle on the canvas */
+    --input: #6DD1E1;                 /* 300 — slightly more visible */
+    --ring: #4FB5C9;                  /* 400 */
 
     /* Shape & type */
     --radius: 1.25rem;
