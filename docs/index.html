@@ -26,6 +26,7 @@
         <a class="btn" href="#/home" data-link="home">Home</a>
         <a class="btn" href="#/about" data-link="about">About</a>
         <a class="btn" href="#/projects" data-link="projects">Products</a>
+        <a class="btn" href="#/youtube" data-link="youtube">YouTube</a>
         <a class="btn" href="#/contact" data-link="contact">Contact</a>
     </nav>
 
@@ -109,6 +110,21 @@ that solve real problems, for anyone, anywhere.
     <a class="btn btn-secondary middle" href="https://inputto.com" target="_blank">Visit Inputto</a>
 </div>        </section>
 
+        <!-- ===== YouTube ===== -->
+        <!-- Map and list are filled by youtube.js from videos.json -->
+        <section data-route="youtube" hidden>
+            <h1>YouTube</h1>
+            <p>Videos from across East Asia, each pinned to the place where it happens.</p>
+
+            <div class="card map-card">
+                <div id="video-map" class="video-map" role="region" aria-label="Map of videos"></div>
+                <span id="video-map-status" class="chip" role="status">Loading map…</span>
+            </div>
+
+            <span id="video-empty" class="chip" hidden>The first videos are on their way.</span>
+            <ul id="video-list" class="video-list" hidden></ul>
+        </section>
+
         <!-- ===== Contact ===== -->
         <section data-route="contact" hidden>
             <h1>Contact</h1>
@@ -179,9 +195,17 @@ that solve real problems, for anyone, anywhere.
                     gone, just say so and we will erase it.</p>
 
                 <h3>No tracking</h3>
-                <p>This site sets no cookies, runs no analytics and embeds nothing from anyone
-                    else. Fonts are served from this site rather than from Google, so no request
-                    leaves your browser until you press send.</p>
+                <p>This site sets no cookies and runs no analytics. Fonts are served from this
+                    site rather than from Google, so on every page except one, no request leaves
+                    your browser until you press send.</p>
+
+                <h3>The YouTube page</h3>
+                <p>The YouTube page is the one exception. When you open it, the map is loaded
+                    from OpenFreeMap and the video thumbnails from YouTube, so your browser
+                    contacts their servers and they see your IP address. A YouTube video player
+                    is only loaded when you press play, using YouTube's privacy-enhanced mode;
+                    from then on YouTube's own privacy policy applies. None of this happens on
+                    any other page.</p>
 
                 <h3>Your rights</h3>
                 <p>You can ask for a copy of what is stored about you, ask for it to be corrected,
@@ -198,5 +222,6 @@ that solve real problems, for anyone, anywhere.
     </footer>
 
     <script src="app.js"></script>
+    <script type="module" src="youtube.js"></script>
 </body>
 </html>

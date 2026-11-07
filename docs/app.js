@@ -1,7 +1,7 @@
 // East Street Labs — tiny hash router (plain JavaScript)
 
 (function () {
-    var ROUTES = ["home", "about", "projects", "contact", "privacy"];
+    var ROUTES = ["home", "about", "projects", "youtube", "contact", "privacy"];
     var DEFAULT_ROUTE = "home";
 
     function currentRoute() {

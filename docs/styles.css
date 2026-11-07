@@ -546,6 +546,266 @@ button[disabled]:active {
 }
 
 /* ============================================================
+   YouTube map
+   The map's own controls and popups use MapLibre's look, which is
+   close to an embedded Google map. Everything inside the map is
+   shielded from the site-wide button and text-pill rules above.
+   ============================================================ */
+
+.map-card {
+    padding: 0.5rem;
+}
+
+.video-map {
+    position: relative;
+    height: min(34rem, 70vh);
+    border-radius: calc(var(--radius) - 0.5rem);
+    overflow: hidden;
+    background: #B0E6EE; /* the map's sea colour (THEME.sea), shown while tiles load */
+    font-family: var(--font-sans);
+}
+
+/* Undo the chunky 3D button rule for every button inside the map.
+   MapLibre's stylesheet loads later, so its own control rules still win. */
+.video-map button {
+    height: auto;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font-weight: inherit;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    transition: none;
+}
+
+.video-map button:active {
+    transform: none;
+}
+
+.map-card .chip {
+    margin-bottom: 0.5rem;
+}
+
+/* Popup — white card like a Google info window. Above the corner
+   controls, so its close button can never end up underneath them. */
+.video-map .maplibregl-popup {
+    z-index: 3;
+}
+
+.video-map .maplibregl-popup-content {
+    padding: 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 7px 1px rgb(0 0 0 / 0.3);
+}
+
+.video-map .maplibregl-popup-close-button {
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: #FFFFFF;
+    background: rgb(0 0 0 / 0.55);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.video-map .maplibregl-popup-close-button:hover {
+    background: rgb(0 0 0 / 0.75);
+}
+
+.video-popup {
+    width: 17rem;
+    max-width: 100%;
+    padding-bottom: 0.75rem;
+    color: var(--foreground);
+    line-height: 1.4;
+}
+
+.video-popup-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+}
+
+.video-popup-media iframe,
+.video-popup-play,
+.video-popup-play img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-popup-play {
+    cursor: pointer;
+}
+
+.video-popup-play img {
+    object-fit: cover;
+}
+
+/* Red rounded play badge, drawn in CSS */
+.video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.25rem;
+    height: 2.25rem;
+    transform: translate(-50%, -50%);
+    background: #FF0033;
+    border-radius: 0.6rem;
+}
+
+.video-play-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 0.5rem 0 0.5rem 0.85rem;
+    border-color: transparent transparent transparent #FFFFFF;
+}
+
+.video-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--accent-foreground);
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.video-popup-title {
+    padding: 0.625rem 0.875rem 0;
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+
+.video-popup-place {
+    padding: 0.125rem 0.875rem 0;
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
+}
+
+.video-popup-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding: 0.5rem 0.875rem 0;
+}
+
+.video-map .video-popup-link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--primary-shadow);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Several videos at one spot */
+.video-stack-head {
+    padding: 0.75rem 2.75rem 0.375rem 0.875rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+
+.video-stack {
+    max-height: 16rem;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0 0.375rem;
+    list-style: none;
+}
+
+.video-map .video-stack-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    width: 100%;
+    padding: 0.375rem 0.5rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.video-map .video-stack-item:hover,
+.video-map .video-stack-item:focus-visible {
+    background: var(--muted);
+}
+
+.video-stack-item .video-item-thumb {
+    width: 4.5rem;
+}
+
+/* List of videos under the map */
+.video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.video-list .video-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;
+    margin: 0;
+    background: #FFFFFF;
+    color: var(--foreground);
+    font-weight: 400;
+    text-align: left;
+    border-bottom-color: var(--secondary-shadow);
+}
+
+.video-item-thumb {
+    flex: none;
+    width: 6rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    background: #000000;
+}
+
+.video-item-thumb.video-placeholder {
+    background: var(--accent);
+}
+
+.video-item-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-item-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.3;
+}
+
+.video-item-title {
+    font-weight: 700;
+    font-size: 0.9375rem;
+}
+
+.video-item-place {
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
+}
+
+/* ============================================================
    Footer
    ============================================================ */
 
