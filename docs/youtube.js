@@ -55,8 +55,9 @@ const THEME = {
     textSoft: "#55656A",       // muted foreground: regions, roads, places
     textWater: "#0F6F85",      // 700
     halo: "#FFFFFF",
-    pin: "#1A9BB5",            // 500 — primary, like the site's buttons
-    pinEdge: "#0F6F85",        // 700 — the buttons' depth edge
+    pin: "#F4A48C",            // the logo's cherry-blossom pink
+    pinEdge: "#C8674F",        // a deeper shade of the same pink
+    pinText: "#6E2A1C",        // cluster numbers: white is too faint on the pink
 };
 
 const YOUTUBE_ID = /^[A-Za-z0-9_-]{11}$/;
@@ -329,7 +330,7 @@ function addVideoLayers() {
         filter: isCluster,
         paint: {
             "circle-color": THEME.pin,
-            "circle-opacity": 0.25,
+            "circle-opacity": 0.35,
             "circle-radius": size(24, 29, 35),
         },
     });
@@ -359,7 +360,7 @@ function addVideoLayers() {
             "text-allow-overlap": true,
             "text-ignore-placement": true,
         },
-        paint: { "text-color": "#FFFFFF" },
+        paint: { "text-color": THEME.pinText },
     });
 
     map.addLayer({
